@@ -6,16 +6,49 @@
   </div>
 
   <div class="row">
-    <div class="col-lg-12">
-      <input type="text">
-      <!-- szurok -->
+    <div class="col-lg-12 d-flex justify-content-center align-items-center">
+      <mat-form-field>
+        <mat-label>Keresett termék</mat-label>
+        <input matInput type="text" placeholder="Add meg a keresett termék nevét">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Márka kiválasztása</mat-label>
+        <mat-select [(value)]="selectedBrand" >
+          <mat-option value="Marka1">Marka1</mat-option>
+          <mat-option value="Marka2">Marka2</mat-option>
+          <mat-option value="Marka3">Marka3</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Rendezési szempont</mat-label>
+        <mat-select [(value)]="selectedFillter" >
+          <mat-option value="Rendezes 1">Rendezes 1</mat-option>
+          <mat-option value="Rendezes 2">Rendezes 2</mat-option>
+          <mat-option value="Rendezes 3">Rendezes 3</mat-option>
+        </mat-select>
+      </mat-form-field>
+
     </div>
   </div>
 
   <div class="row">
     <div class="col-lg-12">
-      @for (product of productList; track $index) {
-        <app-product-card [product]="product"/>
+      @if(!isLoaded() && !isError()){
+        <mat-spinner />
+      }
+
+      @if (isError()){
+        <p>Valami hiba lépett fel! Kérlek próbáld meg később</p>
+      }
+
+      @if (isLoaded()){
+        @for (product of productList; track $index) {
+          <app-product-card [product]="product"/>
+        } @empty {
+          <p>Nincsenek ilyen termékek! Probáld meg máshogy</p>
+        }
       }
     </div>
   </div>

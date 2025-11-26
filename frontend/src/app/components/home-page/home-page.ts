@@ -1,25 +1,38 @@
-import { Component, DestroyRef, inject, OnInit } from '@angular/core';
+import { Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
 import { ProductCard } from '../product-card/product-card';
 import { ProductService } from '../../services/product-service';
 import { Product } from '../../models/product.model';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatOption, MatSelect } from '@angular/material/select';
 
 @Component({
   selector: 'app-home-page',
-  imports: [ProductCard],
+  imports: [ProductCard, MatFormFieldModule, MatInputModule, MatProgressSpinnerModule, MatSelect, MatOption],
   templateUrl: './home-page.html',
   styleUrl: './home-page.scss',
 })
 export class HomePage implements OnInit {
   private productService = inject(ProductService)
   private destroyRef = inject(DestroyRef)
+  isError = signal<boolean>(false)
+  isLoaded = signal<boolean>(false)
   productList: Product[] = []
+  selectedBrand: string = ""
+  selectedFillter: string = ""
 
   ngOnInit(): void {
     const subscription = this.productService.getProducts().subscribe({
-      next: responseList => {},
-      error: error => console.log(error),
+      next: responseList => {
+        console.log(responseList)
+      },
+      error: error => {
+        console.log(error)
+        this.isError.set(true)
+      },
       complete: () => {
-
+        this.isLoaded.set(true)
       }
     })
 
