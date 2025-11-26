@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Product } from '../models/product.model';
 
 @Injectable({
   providedIn: 'root',
@@ -7,4 +9,8 @@ import { inject, Injectable } from '@angular/core';
 export class ProductService {
   private http = inject(HttpClient)
   private baseUrl: string = "http://localhost:8080/products"
+
+  getProducts(): Observable<Product[]>{
+    return this.http.get<Product[]>(`${this.baseUrl}`)
+  }
 }
