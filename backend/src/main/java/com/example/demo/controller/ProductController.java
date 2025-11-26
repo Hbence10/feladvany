@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.model.Product;
 import com.example.demo.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +17,7 @@ public class ProductController {
     private final ProductService productService;
 
     @GetMapping("")
-    public ResponseEntity<Object> getProducts(@RequestParam("filter") String filter, @RequestParam("sort") String sort, @RequestParam("onlyValid") String onlyValid){
+    public ResponseEntity<Product> getProducts(@RequestParam("filter") String filter, @RequestParam("sort") String sort, @RequestParam("onlyValid") String onlyValid){
         return productService.getProducts(filter, sort, onlyValid);
     }
 }
