@@ -14,7 +14,7 @@ public class ProductController {
     private final ProductService productService;
 
     @GetMapping("")
-    public ResponseEntity<Object> getProducts(@RequestParam(value = "filter", defaultValue = "text") String filter, @RequestParam(value = "sort", defaultValue = "ASC") String sort, @RequestParam(value = "onlyValid", defaultValue = "false") String onlyValid) {
+    public ResponseEntity<Object> getProducts(@RequestParam(name = "filter", defaultValue = "name") String filter, @RequestParam(name = "sort", defaultValue = "ASC") String sort, @RequestParam(name = "onlyValid", defaultValue = "false") String onlyValid) {
         return productService.getProducts(filter, sort, onlyValid.equals("true"));
     }
 }

@@ -26,21 +26,21 @@ public class ProductService {
         } else {
             if (filter.equals("name")) {
                 if (sort.equals("ASC")) {
-
+                    return ResponseEntity.ok().body(productRepository.findAllOrderByHunNameASC());
                 } else {
-
+                    return ResponseEntity.ok().body(productRepository.findAllOrderByHunNameDESC());
                 }
             } else if (filter.equals("netPrice")) {
                 if (sort.equals("ASC")) {
-
+                    return ResponseEntity.ok().body(productRepository.findAllOrderByNetPriceASC());
                 } else {
-
+                    return ResponseEntity.ok().body(productRepository.findAllOrderByNetPriceDESC());
                 }
             } else if (filter.equals("grossPrice")) {
                 if (sort.equals("ASC")) {
-
+                    return ResponseEntity.ok().body(productRepository.findAllOrderByGrossPriceASC());
                 } else {
-
+                    return ResponseEntity.ok().body(productRepository.findAllOrderByGrossPriceDESC());
                 }
             }
 

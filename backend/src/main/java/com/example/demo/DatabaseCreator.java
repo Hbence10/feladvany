@@ -100,6 +100,7 @@ public class DatabaseCreator {
             } else if (product.getNetPriceHuf() != null && product.getGrossPriceHuf() == null) {
                 product.setGrossPriceHuf(nettPriceToGrossPrice(product.getNetPriceHuf()));
             }
+            product.checkIfCorrect();
         }
 
         productRepository.saveAll(productList);
