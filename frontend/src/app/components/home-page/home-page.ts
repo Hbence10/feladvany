@@ -4,12 +4,13 @@ import { ProductService } from '../../services/product-service';
 import { Product } from '../../models/product.model';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule, MatSpinner } from '@angular/material/progress-spinner';
 import { MatOption, MatSelect } from '@angular/material/select';
+import { SearchBar } from '../search-bar/search-bar';
 
 @Component({
   selector: 'app-home-page',
-  imports: [ProductCard, MatFormFieldModule, MatInputModule, MatProgressSpinnerModule, MatSelect, MatOption],
+  imports: [ProductCard, MatProgressSpinnerModule, SearchBar],
   templateUrl: './home-page.html',
   styleUrl: './home-page.scss',
 })
