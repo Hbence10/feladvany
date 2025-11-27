@@ -13,6 +13,7 @@ export class Product {
     private brand?: string | null,
     private ean?: string | null,
     private updatedAt?: Date | null,
+    private isIncorrect: boolean = false
   ) {}
 
   get getId(): number | null {
@@ -65,5 +66,9 @@ export class Product {
 
   get getUpdatedAt(): Date | null{
     return this.updatedAt!;
+  }
+
+  get getIsIncorrect(): boolean {
+    return this.isIncorrect
   }
 }

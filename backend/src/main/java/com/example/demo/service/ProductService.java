@@ -19,6 +19,8 @@ public class ProductService {
 
 
     public ResponseEntity<Object> getProducts(String filter, String sort, Boolean onlyValid) {
+        System.out.println(productRepository.findAll().size());
+
         if (!sortTypeList.contains(sort)) {
             return ResponseEntity.status(400).body("InvalidSortType");
         } else if (!filterTypeList.contains(filter)) {

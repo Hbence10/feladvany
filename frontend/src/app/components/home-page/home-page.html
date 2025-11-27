@@ -22,7 +22,7 @@
       }
 
       @if (isLoaded()){
-        @for (product of productList; track $index) {
+        @for (product of productService.productList; track $index) {
           <app-product-card [product]="product"/>
         } @empty {
           <p>Nincsenek ilyen termékek! Probáld meg máshogy</p>

@@ -15,18 +15,18 @@ import { SearchBar } from '../search-bar/search-bar';
   styleUrl: './home-page.scss',
 })
 export class HomePage implements OnInit {
-  private productService = inject(ProductService)
+  productService = inject(ProductService)
   private destroyRef = inject(DestroyRef)
   isError = signal<boolean>(false)
   isLoaded = signal<boolean>(false)
-  productList: Product[] = []
   selectedBrand: string = ""
   selectedFillter: string = ""
 
   ngOnInit(): void {
     const subscription = this.productService.getProducts("", "").subscribe({
       next: responseList => {
-        this.productList = responseList.map(response => Object.assign(new Product(), response))
+        console.log(responseList)
+        this.productService.productList = responseList.map(response => Object.assign(new Product(), response))
       },
       error: error => {
         console.log(error)

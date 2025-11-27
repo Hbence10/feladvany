@@ -2,15 +2,12 @@
   <div class="row">
     <div class="col-lg-12">
       <div class="input-group mb-3" style="width: 500px;">
-        <input placeholder="Adja meg a keresett termék nevét!" type="text" class="form-control" aria-label="Text input with dropdown button">
+        <input #searchInput (input)="searchProductByName(searchInput.value.trim().toLowerCase())" placeholder="Adja meg a keresett termék nevét!" type="text" class="form-control" aria-label="Text input with dropdown button">
         <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Szűrés</button>
         <ul class="dropdown-menu dropdown-menu-end">
-          <li class="dropdown-item">ABC szerint (Növekvő)</li>
-          <li class="dropdown-item">ABC szerint (Csökkenő)</li>
-          <li class="dropdown-item">Netto ár szerint (Növekvő)</li>
-          <li class="dropdown-item">Netto ár szerint (Csökkenő)</li>
-          <li class="dropdown-item">Bruttó ár szerint (Növekvő)</li>
-          <li class="dropdown-item">Bruttó ár szerint (Csökkenő)</li>
+          <li class="dropdown-item">ABC szerint</li>
+          <li class="dropdown-item">Nettó ár szerint</li>
+          <li class="dropdown-item">Bruttó ár szerint</li>
         </ul>
       </div>
     </div>

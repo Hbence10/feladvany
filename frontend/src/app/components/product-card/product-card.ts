@@ -10,11 +10,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './product-card.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProductCard implements OnInit {
+export class ProductCard {
   product = input.required<Product>()
-  isIncorrect: boolean = false
 
-  ngOnInit(): void {
-    this.isIncorrect = this.product().getSku == null || this.product().getHunProductName == null || this.product().getEnglishProductName == null || this.product().getGrossPriceHuf == null || this.product().getNetPriceHuf == null || this.product().getCurrency == null || this.product().getVatRate == null || this.product().getQuantityAvailable == null || this.product().getStockQuantity == null || this.product().getBrand == null || this.product().getEan == null
-  }
 }
