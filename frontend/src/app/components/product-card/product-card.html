@@ -1,11 +1,16 @@
 <div class="container-fluid my-4 w-50">
   <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-12" [class.inCorrect]="isIncorrect">
         <mat-accordion>
           <mat-expansion-panel>
             <mat-expansion-panel-header>
               <div class="w-100 d-flex justify-content-between align-items-center">
-                {{product().getHunProductName}}
+                <div class="d-flex justify-content-between align-items-center">
+                  <span>{{product().getHunProductName}}</span>
+                  @if(isIncorrect){
+                    <span class="material-symbols-outlined">error</span>
+                  }
+                </div>
                 <span class="mx-3"><span class="fw-bold">Ára:</span> {{product().getNetPriceHuf | currency : "" : ""}} {{product().getCurrency}}</span>
               </div>
             </mat-expansion-panel-header>
@@ -23,6 +28,7 @@
                       <li><span class="fw-bold">Elérhető mennyiség:</span> {{product().getQuantityAvailable}}</li>
                       <li><span class="fw-bold">Raktáron lévő mennyiség:</span> {{product().getStockQuantity}}</li>
                       <li><span class="fw-bold">Márka:</span> {{product().getBrand}}</li>
+                      <li><span class="fw-bold">Ean:</span> {{product().getEan}}</li>
                     </ul>
                   </div>
                 </div>

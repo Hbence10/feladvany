@@ -1,69 +1,69 @@
 export class Product {
   constructor(
-    private id?: number,
-    private sku?: string,
-    private hunProductName?: string,
-    private englishProductName?: string,
-    private grossPriceHuf?: number,
-    private netPriceHuf?: number,
-    private currency?: string,
-    private vatRate?: number,
-    private quantityAvailable?: number,
-    private stockQuantity?: number,
-    private brand?: string,
-    private ean?: string,
-    private updatedAt?: Date
-  ) { }
+    private id?: number | null,
+    private sku?: string | null,
+    private hunProductName?: string | null,
+    private englishProductName?: string | null,
+    private grossPriceHuf?: number | null,
+    private netPriceHuf?: number | null,
+    private currency?: string | null,
+    private vatRate?: number | null,
+    private quantityAvailable?: number | null,
+    private stockQuantity?: number | null,
+    private brand?: string | null,
+    private ean?: string | null,
+    private updatedAt?: Date | null,
+  ) {}
 
-  get getId(): number {
+  get getId(): number | null {
     return this.id!;
   }
 
-  get getSku(): string {
+  get getSku(): string | null{
     return this.sku!;
   }
 
-  get getHunProductName(): string {
+  get getHunProductName(): string | null{
     return this.hunProductName!;
   }
 
-  get getEnglishProductName(): string {
+  get getEnglishProductName(): string | null{
     return this.englishProductName!;
   }
 
-  get getGrossPriceHuf(): number {
+  get getGrossPriceHuf(): number | null{
     return this.grossPriceHuf!;
   }
 
-  get getNetPriceHuf(): number {
+  get getNetPriceHuf(): number | null{
     return this.netPriceHuf!;
   }
 
-  get getCurrency(): string {
+  get getCurrency(): string | null{
     return this.currency!;
   }
 
-  get getVatRate(): number {
+  get getVatRate(): number | null{
     return this.vatRate!;
   }
 
-  get getQuantityAvailable(): number {
+  get getQuantityAvailable(): number | null{
     return this.quantityAvailable!;
   }
 
-  get getStockQuantity(): number {
+  get getStockQuantity(): number | null{
     return this.stockQuantity!;
   }
 
-  get getBrand(): string {
+  get getBrand(): string | null{
     return this.brand!;
   }
 
-  get getEan(): string {
+  get getEan(): string | null{
     return this.ean!;
   }
 
-  get getUpdatedAt(): Date {
+  get getUpdatedAt(): Date | null{
     return this.updatedAt!;
   }
 }
