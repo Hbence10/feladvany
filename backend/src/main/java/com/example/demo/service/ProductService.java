@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.model.Product;
+import com.example.demo.repository.ProductRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -13,10 +13,38 @@ import java.util.Arrays;
 @Transactional
 @RequiredArgsConstructor
 public class ProductService {
-    ArrayList<String> filterTypeList = new ArrayList<>(Arrays.asList());
-    ArrayList<String> sortTypeList = new ArrayList<>(Arrays.asList());
+    ArrayList<String> filterTypeList = new ArrayList<>(Arrays.asList("name", "netPrice", "grossPrice"));
+    ArrayList<String> sortTypeList = new ArrayList<>(Arrays.asList("ASC", "DESC"));
+    private final ProductRepository productRepository;
 
-    public ResponseEntity<Product> getProducts(String filter, String sort, String onlyValid){
-        return null;
+
+    public ResponseEntity<Object> getProducts(String filter, String sort, Boolean onlyValid) {
+        if (!sortTypeList.contains(sort)) {
+            return ResponseEntity.status(400).body("InvalidSortType");
+        } else if (!filterTypeList.contains(filter)) {
+            return ResponseEntity.status(400).body("InvalidFilterType");
+        } else {
+            if (filter.equals("name")) {
+                if (sort.equals("ASC")) {
+
+                } else {
+
+                }
+            } else if (filter.equals("netPrice")) {
+                if (sort.equals("ASC")) {
+
+                } else {
+
+                }
+            } else if (filter.equals("grossPrice")) {
+                if (sort.equals("ASC")) {
+
+                } else {
+
+                }
+            }
+
+            return null;
+        }
     }
 }

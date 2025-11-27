@@ -103,6 +103,7 @@ public class DatabaseCreator {
         }
 
         productRepository.saveAll(productList);
+        System.out.println("database created!");
     }
 
     //segito methodok
