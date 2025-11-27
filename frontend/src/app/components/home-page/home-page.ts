@@ -24,7 +24,7 @@ export class HomePage implements OnInit {
   selectedFillter: string = ""
 
   ngOnInit(): void {
-    const subscription = this.productService.getProducts().subscribe({
+    const subscription = this.productService.getProducts("", "").subscribe({
       next: responseList => {
         this.productList = responseList
       },
