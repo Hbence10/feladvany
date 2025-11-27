@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, OnInit } from '@angular/core';
 import { Product } from '../../models/product.model';
 
 @Component({
@@ -7,6 +7,10 @@ import { Product } from '../../models/product.model';
   templateUrl: './product-card.html',
   styleUrl: './product-card.scss',
 })
-export class ProductCard {
+export class ProductCard implements OnInit{
   product = input.required<Product>()
+
+  ngOnInit(): void {
+    console.log(this.product())
+  }
 }

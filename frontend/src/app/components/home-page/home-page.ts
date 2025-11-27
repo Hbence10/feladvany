@@ -25,7 +25,7 @@ export class HomePage implements OnInit {
   ngOnInit(): void {
     const subscription = this.productService.getProducts().subscribe({
       next: responseList => {
-        console.log(responseList)
+        this.productList = responseList
       },
       error: error => {
         console.log(error)
