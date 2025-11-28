@@ -1,8 +1,4 @@
-# Feladvány
-
-## A readme tartalma: 
-- [Frontend]("#frontend")
-- [Backend]("#backend")
+# Feladvány - Halmai Bence
 
 ## Backend:
 > A backend elinditásához vagy az 'mvn spring-boot:run'/'mvn spring-boot:run' paranccsal inditható el. Parancs nélkül, az aktuálisan IDE-vel is inditható a projekt.
