@@ -1,10 +1,4 @@
-li {
-  cursor: pointer;
-}
-
-input {
-  width: 500px !important;
-}
+@use '@angular/material' as mat;
 
 #searchInput {
   background-color: #417E85 !important;
@@ -14,4 +8,48 @@ input {
 
 #searchInput::placeholder {
   color: #E9F0ED;
+}
+
+#sortButton {
+  border-radius: 8px;
+  height: 56px;
+  background-color: #18363A;
+}
+
+mat-form-field {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+mat-checkbox {
+  @include mat.checkbox-overrides(( //
+      label-text-color: #E9F0ED,
+      selected-checkmark-color: #E9F0ED,
+      selected-focus-icon-color: #18363A,
+      selected-icon-color: #18363A,
+      selected-pressed-icon-color: #18363A,
+      selected-hover-icon-color: #18363A //
+    ));
+}
+
+mat-form-field {
+  @include mat.form-field-overrides(( //
+      filled-container-color: #E9F0ED, //inputok hattere
+      filled-focus-active-indicator-color: #18363A, //also vonal
+      filled-active-indicator-color: #18363A,
+      filled-focus-label-text-color: #18363A,
+      filled-hover-active-indicator-color: #18363A,
+      filled-hover-label-text-color: #18363A,
+      filled-input-text-color: #18363A,
+      filled-input-text-placeholder-color: #18363A,
+      filled-label-text-color: #18363A,
+    ));
+}
+
+mat-select {
+  @include mat.select-overrides(( //
+      panel-background-color: #E9F0ED,
+      placeholder-text-color: #18363A //
+    ));
 }

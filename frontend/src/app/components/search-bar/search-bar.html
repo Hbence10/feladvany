@@ -1,12 +1,12 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-lg-12 d-flex justify-content-center align-items-center">
-      <mat-form-field class="mx-2" style="width: 500px;">
+      <mat-form-field class="m-0" style="width: 500px;">
         <mat-label>Keresett termék</mat-label>
         <input #searchInput matInput (input)="searchByName.emit(searchInput.value.trim().toLowerCase())" type="text" placeholder="Adja meg a keresett termék nevét!">
       </mat-form-field>
 
-      <mat-form-field class="mx-2">
+      <mat-form-field class="mx-2" style="width: 150px;">
         <mat-label>Szűrés</mat-label>
         <mat-select #filterSelect (valueChange)="onChangeFilter(filterSelect.value)">
           <mat-option value="name">Név szerint</mat-option>
@@ -15,9 +15,11 @@
         </mat-select>
       </mat-form-field>
 
-      <button matButton="filled" (click)="changeSort.emit()">
+      <button id="sortButton" matButton="filled" (click)="changeSort.emit()" class="d-flex justify-content-center align-items-center">
         <span class="material-symbols-outlined">swap_vert</span>
       </button>
+
+       <mat-checkbox (change)="changeValidState()" class="example-margin">Érvényes</mat-checkbox>
     </div>
   </div>
 </div>
