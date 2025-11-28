@@ -1,21 +1,23 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-lg-12 d-flex justify-content-center align-items-center">
-      <div class="input-group mb-3">
-        <input #searchInput (input)="searchByName.emit(searchInput.value.trim().toLowerCase())" placeholder="Adja meg a keresett termék nevét!" type="text" class="form-control" aria-label="Text input with dropdown button">
-        <!-- <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Szűrés</button> -->
-        <select #filterSelect class="dropdown-toggle" (change)="onChangeFilter(filterSelect.value)">
-          <option [value]="'name'" class="dropdown-item">ABC szerint</option>
-          <option [value]="'netPrice'" class="dropdown-item">Nettó ár szerint</option>
-          <option [value]="'grossPrice'" class="dropdown-item">Bruttó ár szerint</option>
-        </select>''
+      <mat-form-field class="mx-2" style="width: 500px;">
+        <mat-label>Keresett termék</mat-label>
+        <input #searchInput matInput (input)="searchByName.emit(searchInput.value.trim().toLowerCase())" type="text" placeholder="Adja meg a keresett termék nevét!">
+      </mat-form-field>
 
-        <button class="btn btn-outline-secondary" (click)="changeSort.emit()">
-          <span class="material-symbols-outlined">swap_vert</span>
-        </button>
+      <mat-form-field class="mx-2">
+        <mat-label>Szűrés</mat-label>
+        <mat-select #filterSelect (valueChange)="onChangeFilter(filterSelect.value)">
+          <mat-option value="name">Név szerint</mat-option>
+          <mat-option value="netPrice">Nettó ár szerint</mat-option>
+          <mat-option value="grossPrice">Brutto ár szerint</mat-option>
+        </mat-select>
+      </mat-form-field>
 
-        <mat-checkbox (change)="changeValidState()" class="example-margin">Csak érvényes termékek mutatása</mat-checkbox>
-      </div>
+      <button matButton="filled" (click)="changeSort.emit()">
+        <span class="material-symbols-outlined">swap_vert</span>
+      </button>
     </div>
   </div>
 </div>

@@ -9,8 +9,16 @@ li {
   }
 }
 
+.cardCol {
+  @include mat.expansion-overrides(( //
+      container-background-color: #18363A,
+      container-text-color: #E9F0ED,
+      header-indicator-color: #E9F0ED) //
+  );
+}
+
 .inCorrect {
-  @include mat.expansion-overrides((
-    container-background-color: red,
-  ));
+  @include mat.expansion-overrides(( //
+      container-background-color: rgb(189, 38, 38) //
+    ));
 }

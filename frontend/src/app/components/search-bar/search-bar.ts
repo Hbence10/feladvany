@@ -1,10 +1,14 @@
 import { Component, inject, output } from '@angular/core';
-import { ProductService } from '../../services/product-service';
 import { MatCheckbox } from '@angular/material/checkbox';
+import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
+import { ProductService } from '../../services/product-service';
+import { MatInputModule } from '@angular/material/input';
+import { MatOption, MatSelect } from '@angular/material/select';
+import { MatButton } from '@angular/material/button';
 
 @Component({
   selector: 'app-search-bar',
-  imports: [MatCheckbox],
+  imports: [MatCheckbox, MatFormFieldModule, MatInputModule, MatLabel, MatSelect, MatOption, MatButton],
   templateUrl: './search-bar.html',
   styleUrl: './search-bar.scss',
 })
