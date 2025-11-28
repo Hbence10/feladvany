@@ -59,7 +59,7 @@ export class HomePage implements OnInit {
     if (inputValue.length == 0) {
       this.productService.productList = this.productService.getBaseList
     } else {
-      this.productService.productList = this.productService.productList.filter(product =>
+      this.productService.productList = this.productService.getBaseList.filter(product =>
         product.getHunProductName?.trim().toLowerCase().substring(0, inputValue.length) == inputValue
       )
     }
