@@ -25,9 +25,8 @@ export class SearchBar {
     this.changeValid.emit()
   }
 
-  onChangeFilter(selectedFilter?: string){
-    console.log(this.selectedFilter)
-    // this.changeFilter.emit(selectedFilter)
+  onChangeFilter(){
+    this.changeFilter.emit(this.selectedFilter)
   }
 
 
