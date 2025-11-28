@@ -8,9 +8,6 @@ import java.util.List;
 public interface ProductRepository extends JpaRepository<Product, Integer> {
 
     List<Product> findAllOrderByHunNameASC();
-    List<Product> findAllOrderByHunNameDESC();
     List<Product> findAllOrderByNetPriceASC();
-    List<Product> findAllOrderByNetPriceDESC();
     List<Product> findAllOrderByGrossPriceASC();
-    List<Product> findAllOrderByGrossPriceDESC();
 }

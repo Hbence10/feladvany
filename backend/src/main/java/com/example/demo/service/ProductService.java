@@ -32,19 +32,19 @@ public class ProductService {
                 if (sort.equals("ASC")) {
                     returnList = productRepository.findAllOrderByHunNameASC();
                 } else {
-                    returnList = productRepository.findAllOrderByHunNameDESC();
+                    returnList = productRepository.findAllOrderByHunNameASC().reversed();
                 }
             } else if (filter.equals("netPrice")) {
                 if (sort.equals("ASC")) {
                     returnList = productRepository.findAllOrderByNetPriceASC();
                 } else {
-                    returnList = productRepository.findAllOrderByNetPriceDESC();
+                    returnList = productRepository.findAllOrderByNetPriceASC().reversed();
                 }
             } else if (filter.equals("grossPrice")) {
                 if (sort.equals("ASC")) {
                     returnList = productRepository.findAllOrderByGrossPriceASC();
                 } else {
-                    returnList = productRepository.findAllOrderByGrossPriceDESC();
+                    returnList = productRepository.findAllOrderByGrossPriceASC().reversed();
                 }
             }
 

@@ -1,11 +1,8 @@
-import { Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
-import { ProductCard } from '../product-card/product-card';
-import { ProductService } from '../../services/product-service';
+import { Component, DestroyRef, inject, input, OnInit, signal } from '@angular/core';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { Product } from '../../models/product.model';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatProgressSpinnerModule, MatSpinner } from '@angular/material/progress-spinner';
-import { MatOption, MatSelect } from '@angular/material/select';
+import { ProductService } from '../../services/product-service';
+import { ProductCard } from '../product-card/product-card';
 import { SearchBar } from '../search-bar/search-bar';
 
 @Component({
@@ -19,26 +16,52 @@ export class HomePage implements OnInit {
   private destroyRef = inject(DestroyRef)
   isError = signal<boolean>(false)
   isLoaded = signal<boolean>(false)
-  selectedBrand: string = ""
-  selectedFillter: string = ""
+  selectedFillter: string = "name"
+  selectedSort: "ASC" | "DESC" = "ASC"
 
   ngOnInit(): void {
-    const subscription = this.productService.getProducts("", "").subscribe({
+    this.getProducts(true)
+
+  }
+
+  getProducts(isFirst: boolean = false) {
+    const subscription = this.productService.getProducts(this.selectedFillter, this.selectedSort).subscribe({
       next: responseList => {
-        console.log(responseList)
         this.productService.productList = responseList.map(response => Object.assign(new Product(), response))
       },
       error: error => {
-        console.log(error)
         this.isError.set(true)
       },
       complete: () => {
         this.isLoaded.set(true)
+        if (isFirst) {
+          this.productService.setBaseList = this.productService.productList
+        }
       }
     })
 
     this.destroyRef.onDestroy(() => {
       subscription.unsubscribe()
     })
+  }
+
+  changeSort() {
+    this.selectedSort = this.selectedSort == "ASC" ? "DESC" : "ASC"
+    this.getProducts()
+  }
+
+  changeFilter(newFilter: string) {
+    this.selectedFillter = newFilter
+    this.getProducts()
+  }
+
+  searchByName(inputValue: string) {
+    if (inputValue.length == 0) {
+      this.productService.productList = this.productService.getBaseList
+    } else {
+      this.productService.productList = this.productService.productList.filter(product =>
+        product.getHunProductName?.trim().toLowerCase().substring(0, inputValue.length) == inputValue
+      )
+    }
   }
 }

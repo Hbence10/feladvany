@@ -6,8 +6,8 @@
   </div>
 
   <div class="row">
-    <div class="col-lg-12 d-flex justify-content-center align-items-center">
-      <app-search-bar />
+    <div class="col-lg-12">
+      <app-search-bar (searchByName)="searchByName($event)" (changeValid)="getProducts()" (changeSort)="changeSort()" (changeFilter)="changeFilter($event)" />
     </div>
   </div>
 

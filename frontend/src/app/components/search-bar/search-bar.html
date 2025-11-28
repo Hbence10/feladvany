@@ -1,14 +1,20 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-lg-12">
-      <div class="input-group mb-3" style="width: 500px;">
-        <input #searchInput (input)="searchProductByName(searchInput.value.trim().toLowerCase())" placeholder="Adja meg a keresett termék nevét!" type="text" class="form-control" aria-label="Text input with dropdown button">
-        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Szűrés</button>
-        <ul class="dropdown-menu dropdown-menu-end">
-          <li class="dropdown-item">ABC szerint</li>
-          <li class="dropdown-item">Nettó ár szerint</li>
-          <li class="dropdown-item">Bruttó ár szerint</li>
-        </ul>
+    <div class="col-lg-12 d-flex justify-content-center align-items-center">
+      <div class="input-group mb-3">
+        <input #searchInput (input)="searchByName.emit(searchInput.value.trim().toLowerCase())" placeholder="Adja meg a keresett termék nevét!" type="text" class="form-control" aria-label="Text input with dropdown button">
+        <!-- <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Szűrés</button> -->
+        <select #filterSelect class="dropdown-toggle" (change)="onChangeFilter(filterSelect.value)">
+          <option [value]="'name'" class="dropdown-item">ABC szerint</option>
+          <option [value]="'netPrice'" class="dropdown-item">Nettó ár szerint</option>
+          <option [value]="'grossPrice'" class="dropdown-item">Bruttó ár szerint</option>
+        </select>''
+
+        <button class="btn btn-outline-secondary" (click)="changeSort.emit()">
+          <span class="material-symbols-outlined">swap_vert</span>
+        </button>
+
+        <mat-checkbox (change)="changeValidState()" class="example-margin">Csak érvényes termékek mutatása</mat-checkbox>
       </div>
     </div>
   </div>
