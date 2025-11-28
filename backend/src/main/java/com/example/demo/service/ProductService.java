@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.model.Product;
 import com.example.demo.repository.ProductRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 @Service
 @Transactional
@@ -19,7 +21,7 @@ public class ProductService {
 
 
     public ResponseEntity<Object> getProducts(String filter, String sort, Boolean onlyValid) {
-        System.out.println(productRepository.findAll().size());
+        List<Product> returnList = new ArrayList<Product>();
 
         if (!sortTypeList.contains(sort)) {
             return ResponseEntity.status(400).body("InvalidSortType");
@@ -28,25 +30,29 @@ public class ProductService {
         } else {
             if (filter.equals("name")) {
                 if (sort.equals("ASC")) {
-                    return ResponseEntity.ok().body(productRepository.findAllOrderByHunNameASC());
+                    returnList = productRepository.findAllOrderByHunNameASC();
                 } else {
-                    return ResponseEntity.ok().body(productRepository.findAllOrderByHunNameDESC());
+                    returnList = productRepository.findAllOrderByHunNameDESC();
                 }
             } else if (filter.equals("netPrice")) {
                 if (sort.equals("ASC")) {
-                    return ResponseEntity.ok().body(productRepository.findAllOrderByNetPriceASC());
+                    returnList = productRepository.findAllOrderByNetPriceASC();
                 } else {
-                    return ResponseEntity.ok().body(productRepository.findAllOrderByNetPriceDESC());
+                    returnList = productRepository.findAllOrderByNetPriceDESC();
                 }
             } else if (filter.equals("grossPrice")) {
                 if (sort.equals("ASC")) {
-                    return ResponseEntity.ok().body(productRepository.findAllOrderByGrossPriceASC());
+                    returnList = productRepository.findAllOrderByGrossPriceASC();
                 } else {
-                    return ResponseEntity.ok().body(productRepository.findAllOrderByGrossPriceDESC());
+                    returnList = productRepository.findAllOrderByGrossPriceDESC();
                 }
             }
 
-            return null;
+            if (onlyValid) {
+                return ResponseEntity.ok().body(returnList.stream().filter(product -> !product.getIsIncorrect()).toList());
+            }
+
+            return ResponseEntity.ok().body(returnList);
         }
     }
 }
