@@ -3,7 +3,7 @@
 ## Backend:
 > A backend elinditásához vagy az 'mvn spring-boot:run'/'mvn spring-boot:run' paranccsal inditható el. Parancs nélkül, az aktuálisan IDE-vel is inditható a projekt.
 A projekt backend ügyileg Java Spring bootos és H2 (in-memory) adatbázist használ. 
-- Az **API szerződés** ezen a [linken]("http://localhost:8080/swagger-ui/index.html#/") érhető el. **A szerződéshez, szükséges, hogy fusson a backend projekt.**
+- Az **API szerződés** ezen a [linken](http://localhost:8080/swagger-ui/index.html#/) érhető el. **A szerződéshez, szükséges, hogy fusson a backend projekt.**
 
 
 ## Frontend:
