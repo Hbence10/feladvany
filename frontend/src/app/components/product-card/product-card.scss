@@ -22,3 +22,9 @@ li {
       container-background-color: rgb(189, 38, 38) //
     ));
 }
+
+@media screen and (min-width: 992px) {
+  #mainContainer{
+    width: 50%;
+  }
+}

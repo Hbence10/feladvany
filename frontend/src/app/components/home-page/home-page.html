@@ -18,14 +18,14 @@
       }
 
       @if (isError()){
-        <p class="errorMsg mainFont text-center">Valami hiba lépett fel! Kérlek próbáld meg később</p>
+        <p class="errorMsg mainFont text-center my-5">Valami hiba lépett fel! Kérlek próbáld meg később</p>
       }
 
       @if (isLoaded()){
         @for (product of productService.productList; track $index) {
           <app-product-card [product]="product"/>
         } @empty {
-          <p class="errorMsg mainFont text-center">Nincsenek ilyen termékek! Probáld meg máshogy</p>
+          <p class="errorMsg mainFont text-center my-5">Nincsenek ilyen termékek! Probáld meg máshogy</p>
         }
       }
     </div>

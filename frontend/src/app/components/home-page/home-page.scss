@@ -1,6 +1,10 @@
 .errorMsg {
-  font-size: 75px;
-  position: fixed;
-  top: 50%;
-  width: 100%;
+  font-size: clamp(1.875rem, 1.1535rem + 2.6846vw, 4.375rem);
+  line-height: clamp(1.875rem, 1.1535rem + 2.6846vw, 4.375rem);
+}
+
+@media screen and (max-width: 992px) {
+  app-product-card {
+    width: 80% !important;
+  }
 }

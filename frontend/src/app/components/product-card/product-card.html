@@ -1,4 +1,4 @@
-<div class="container-fluid my-4 w-50">
+<div class="container-fluid my-4" id="mainContainer">
   <div class="row">
     <div class="col-lg-12 cardCol" [class.inCorrect]="product().getIsIncorrect">
         <mat-accordion>
@@ -19,17 +19,17 @@
               <div class="container-fluid">
                 <div class="row">
                   <div class="col-lg-12">
-                    <h6 class="mainFont mb-0">Termék adatai:</h6>
+                    <h6 class="mainFont mb-0 text-lg-start text-md-center text-center">Termék adatai:</h6>
                     <hr>
                     <ul>
-                      <li><span class="mainFont fw-bold">Termék angol neve:</span> {{product().getEnglishProductName}}</li>
-                      <li><span class="mainFont fw-bold">Bruttó ár:</span> {{product().getGrossPriceHuf | currency : "" : ""}} {{product().getCurrency}}</li>
-                      <li><span class="mainFont fw-bold">Nettó ár:</span> {{product().getNetPriceHuf | currency : "" : ""}} {{product().getCurrency}}</li>
-                      <li><span class="mainFont fw-bold">vatRate:</span> {{product().getVatRate}}</li>
-                      <li><span class="mainFont fw-bold">Elérhető mennyiség:</span> {{product().getQuantityAvailable}}</li>
-                      <li><span class="mainFont fw-bold">Raktáron lévő mennyiség:</span> {{product().getStockQuantity}}</li>
-                      <li><span class="mainFont fw-bold">Márka:</span> {{product().getBrand}}</li>
-                      <li><span class="mainFont fw-bold">Ean:</span> {{product().getEan}}</li>
+                      <li class="text-lg-start text-md-center text-center"><span class="mainFont fw-bold">Termék angol neve:</span> {{product().getEnglishProductName}}</li>
+                      <li class="text-lg-start text-md-center text-center"><span class="mainFont fw-bold">Bruttó ár:</span> {{product().getGrossPriceHuf | currency : "" : ""}} {{product().getCurrency}}</li>
+                      <li class="text-lg-start text-md-center text-center"><span class="mainFont fw-bold">Nettó ár:</span> {{product().getNetPriceHuf | currency : "" : ""}} {{product().getCurrency}}</li>
+                      <li class="text-lg-start text-md-center text-center"><span class="mainFont fw-bold">vatRate:</span> {{product().getVatRate}}</li>
+                      <li class="text-lg-start text-md-center text-center"><span class="mainFont fw-bold">Elérhető mennyiség:</span> {{product().getQuantityAvailable}}</li>
+                      <li class="text-lg-start text-md-center text-center"><span class="mainFont fw-bold">Raktáron lévő mennyiség:</span> {{product().getStockQuantity}}</li>
+                      <li class="text-lg-start text-md-center text-center"><span class="mainFont fw-bold">Márka:</span> {{product().getBrand}}</li>
+                      <li class="text-lg-start text-md-center text-center"><span class="mainFont fw-bold">Ean:</span> {{product().getEan}}</li>
                     </ul>
                   </div>
                 </div>

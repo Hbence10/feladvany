@@ -16,12 +16,7 @@
   background-color: #18363A;
 }
 
-mat-form-field {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-}
-
+//material
 mat-checkbox {
   @include mat.checkbox-overrides(( //
       label-text-color: #E9F0ED,
@@ -29,7 +24,10 @@ mat-checkbox {
       selected-focus-icon-color: #18363A,
       selected-icon-color: #18363A,
       selected-pressed-icon-color: #18363A,
-      selected-hover-icon-color: #18363A //
+      selected-hover-icon-color: #18363A,
+      label-text-weight: 500,
+      unselected-icon-color: #E9F0ED,
+      unselected-hover-icon-color: #E9F0ED //
     ));
 }
 
@@ -52,4 +50,11 @@ mat-select {
       panel-background-color: white,
       placeholder-text-color: #004D40 //
     ));
+}
+
+//reszponzivitas
+@media screen and (max-width: 992px) {
+  mat-form-field, #otherFilter {
+    width: 60% !important;
+  }
 }
