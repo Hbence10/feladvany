@@ -40,10 +40,10 @@ body {
 }
 
 .secondFont {
-  font-family: "Andada Pro", serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
+  font-family: "Andada Pro", serif !important;
+  font-optical-sizing: auto !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
 }
 
 .numberFont {

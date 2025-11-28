@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-lg-12">
-      <h1 class="text-center my-3 mainFont">Termék kereső</h1>
+      <h1 class="text-center mt-4 mb-3 mainFont">Termék kereső</h1>
     </div>
   </div>
 
@@ -18,14 +18,14 @@
       }
 
       @if (isError()){
-        <p>Valami hiba lépett fel! Kérlek próbáld meg később</p>
+        <p class="errorMsg mainFont text-center">Valami hiba lépett fel! Kérlek próbáld meg később</p>
       }
 
       @if (isLoaded()){
         @for (product of productService.productList; track $index) {
           <app-product-card [product]="product"/>
         } @empty {
-          <p>Nincsenek ilyen termékek! Probáld meg máshogy</p>
+          <p class="errorMsg mainFont text-center">Nincsenek ilyen termékek! Probáld meg máshogy</p>
         }
       }
     </div>

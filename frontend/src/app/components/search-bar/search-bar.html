@@ -8,7 +8,7 @@
 
       <mat-form-field class="mx-2" style="width: 150px;">
         <mat-label>Szűrés</mat-label>
-        <mat-select #filterSelect (valueChange)="onChangeFilter(filterSelect.value)">
+        <mat-select (valueChange)="onChangeFilter()" [(value)]="selectedFilter" (valueChange)="onChangeFilter()">
           <mat-option value="name">Név szerint</mat-option>
           <mat-option value="netPrice">Nettó ár szerint</mat-option>
           <mat-option value="grossPrice">Brutto ár szerint</mat-option>

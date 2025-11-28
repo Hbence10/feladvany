@@ -35,21 +35,21 @@ mat-checkbox {
 
 mat-form-field {
   @include mat.form-field-overrides(( //
-      filled-container-color: #E9F0ED, //inputok hattere
-      filled-focus-active-indicator-color: #18363A, //also vonal
-      filled-active-indicator-color: #18363A,
-      filled-focus-label-text-color: #18363A,
-      filled-hover-active-indicator-color: #18363A,
-      filled-hover-label-text-color: #18363A,
-      filled-input-text-color: #18363A,
-      filled-input-text-placeholder-color: #18363A,
-      filled-label-text-color: #18363A,
+      filled-container-color: white, //inputok hattere
+      filled-focus-active-indicator-color: #004D40, //also vonal
+      filled-active-indicator-color: #004D40,
+      filled-focus-label-text-color: #004D40,
+      filled-hover-active-indicator-color: #004D40,
+      filled-hover-label-text-color: #004D40,
+      filled-input-text-color: #004D40,
+      filled-input-text-placeholder-color: #004D40,
+      filled-label-text-color: #004D40,
     ));
 }
 
 mat-select {
   @include mat.select-overrides(( //
-      panel-background-color: #E9F0ED,
-      placeholder-text-color: #18363A //
+      panel-background-color: white,
+      placeholder-text-color: #004D40 //
     ));
 }

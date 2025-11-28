@@ -35,7 +35,7 @@ public class Product {
     private LocalDateTime updatedAt; //
     private Boolean isIncorrect;
 
-    public void checkIfCorrect(){
+    public void checkIfCorrect() {
         this.isIncorrect = this.sku == null || this.hunProductName == null || this.englishProductName == null || this.grossPriceHuf == null || this.netPriceHuf == null || this.currency == null || this.vatRate == null || this.quantityAvailable == null || this.stockQuantity == null || this.brand == null || this.ean == null;
     }
 }

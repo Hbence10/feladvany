@@ -1,4 +1,4 @@
-import { Component, inject, output } from '@angular/core';
+import { Component, computed, inject, output, signal } from '@angular/core';
 import { MatCheckbox } from '@angular/material/checkbox';
 import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import { ProductService } from '../../services/product-service';
@@ -18,13 +18,18 @@ export class SearchBar {
   changeSort = output()
   changeFilter = output<string>()
   searchByName = output<string>()
+  selectedFilter = "name"
 
   changeValidState(){
     this.productService.onlyValid = !this.productService.onlyValid
     this.changeValid.emit()
   }
 
-  onChangeFilter(selectedFilter: string){
-    this.changeFilter.emit(selectedFilter)
+  onChangeFilter(selectedFilter?: string){
+    console.log(this.selectedFilter)
+    // this.changeFilter.emit(selectedFilter)
   }
+
+
+
 }
