@@ -20,13 +20,13 @@ public class ProductService {
     private final ProductRepository productRepository;
 
 
-    public ResponseEntity<Object> getProducts(String filter, String sort, Boolean onlyValid) {
+    public ResponseEntity<List<Product>> getProducts(String filter, String sort, Boolean onlyValid) {
         List<Product> returnList = new ArrayList<Product>();
 
         if (!sortTypeList.contains(sort)) {
-            return ResponseEntity.status(400).body("InvalidSortType");
+            return ResponseEntity.notFound().build();
         } else if (!filterTypeList.contains(filter)) {
-            return ResponseEntity.status(400).body("InvalidFilterType");
+            return ResponseEntity.notFound().build();
         } else {
             if (filter.equals("name")) {
                 if (sort.equals("ASC")) {

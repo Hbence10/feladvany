@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.FileReader;
+import java.time.LocalDateTime;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -68,6 +69,7 @@ public class DatabaseCreator {
             newProduct.setQuantityAvailable(!baseNode.get("quantityAvailable").asText().equals("null") ? Integer.valueOf(baseNode.get("quantityAvailable").toString()) : null);
             newProduct.setEan(baseNode.get("ean").asText(null));
             newProduct.setBrand(baseNode.get("manufacturer").asText(null));
+            newProduct.setUpdatedAt(baseNode.get("updatedAt").asText(null) != null ? LocalDateTime.parse(baseNode.get("updatedAt").asText().replaceAll("Z", "")) : null);
 
             productList.add(newProduct);
         }

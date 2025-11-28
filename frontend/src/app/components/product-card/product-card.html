@@ -30,6 +30,7 @@
                       <li class="text-lg-start text-md-center text-center"><span class="mainFont fw-bold">Raktáron lévő mennyiség:</span> {{product().getStockQuantity}}</li>
                       <li class="text-lg-start text-md-center text-center"><span class="mainFont fw-bold">Márka:</span> {{product().getBrand}}</li>
                       <li class="text-lg-start text-md-center text-center"><span class="mainFont fw-bold">Ean:</span> {{product().getEan}}</li>
+                      <li class="text-lg-start text-md-center text-center"><span class="mainFont fw-bold">Utolsó módosítás ekkor:</span> {{product().getUpdatedAt |date: "medium"}}</li>
                     </ul>
                   </div>
                 </div>
